@@ -17,7 +17,6 @@ date="$( command -v date )"
 git="$( command -v git )"
 curl="$( command -v curl )"
 gpg="$( command -v gpg )"
-ts="$( _timestamp )"
 
 # Dirs.
 d_src="/root/git/repo"
