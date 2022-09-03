@@ -11,6 +11,7 @@ GIT_EMAIL="${3}"
 GIT_TOKEN="${4}"
 GPG_URL="${5}"
 GPG_NAME="${6}"
+GPG_CMD="${7}"
 
 # Apps.
 date="$( command -v date )"
@@ -63,13 +64,10 @@ gpg_build() {
   echo "--- [GPG] BUILD"
   _pushd "${d_src}" || exit 1
 
-  if [[ "${GPG_NAME##*.}" == "gpg" ]]; then
+  if [[ "${GPG_CMD}" == "dearmor" ]]; then
     ${curl} -fsSL "${GPG_URL}" | ${gpg} --batch --yes --dearmor -o "${GPG_NAME}"
-  elif [[ "${GPG_NAME##*.}" == "asc" ]]; then
-    ${curl} -fsSL -o "${GPG_NAME}" "${GPG_URL}"
   else
-    echo "File '*.gpg' or '*.asc' not found!"
-    exit 1
+    ${curl} -fsSL -o "${GPG_NAME}" "${GPG_URL}"
   fi
 
   _popd || exit 1
