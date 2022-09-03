@@ -1,0 +1,35 @@
+name: "GPG Builder"
+author: "z17 CX <mail@z17.cx>"
+description: "GitHub Action for build GPG files."
+branding:
+  icon: ""
+  color: ""
+inputs:
+  git_repo:
+    description: "Git Repository"
+    required: true
+  git_user:
+    description: "Git User"
+    required: true
+  git_email:
+    description: "Git E-mail"
+    required: true
+  git_token:
+    description: "Git Token"
+    required: true
+  gpg_url:
+    description: "GPG URL"
+    required: true
+  gpg_name:
+    description: "GPG Name"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.git_repo }}
+    - ${{ inputs.git_user }}
+    - ${{ inputs.git_email }}
+    - ${{ inputs.git_token }}
+    - ${{ inputs.gpg_url }}
+    - ${{ inputs.gpg_name }}
