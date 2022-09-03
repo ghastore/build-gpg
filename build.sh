@@ -32,6 +32,10 @@ ${git} config --global init.defaultBranch 'main'
 # -------------------------------------------------------------------------------------------------------------------- #
 
 init() {
+  # 'ts' function.
+  ts="$( _timestamp )"
+
+  # Run.
   git_clone \
     && gpg_build \
     && git_push
