@@ -33,6 +33,7 @@ ${git} config --global init.defaultBranch 'main'
 
 init() {
   git_clone \
+    && gpg_build \
     && git_push
 }
 
