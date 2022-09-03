@@ -63,13 +63,20 @@ gpg_build() {
   echo "--- [GPG] BUILD"
   _pushd "${d_src}" || exit 1
 
-  ${curl} -fsSL "${GPG_URL}" | ${gpg} --batch --yes --dearmor -o "${GPG_NAME}"
+  if [[ "${GPG_NAME##*.}" == "gpg" ]]; then
+    ${curl} -fsSL "${GPG_URL}" | ${gpg} --batch --yes --dearmor -o "${GPG_NAME}"
+  elif [[ "${GPG_NAME##*.}" == "asc" ]]; then
+    ${curl} -fsSL -o "${GPG_NAME}" "${GPG_URL}"
+  else
+    echo "File '*.gpg' or '*.asc' not found!"
+    exit 1
+  fi
 
   _popd || exit 1
 }
 
 # -------------------------------------------------------------------------------------------------------------------- #
-# GIT: PUSH PACKAGE TO PACKAGE STORE REPOSITORY.
+# GIT: PUSH GPG TO GPG STORE REPOSITORY.
 # -------------------------------------------------------------------------------------------------------------------- #
 
 git_push() {
