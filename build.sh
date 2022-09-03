@@ -63,7 +63,7 @@ gpg_build() {
   echo "--- [GPG] BUILD"
   _pushd "${d_src}" || exit 1
 
-  ${curl} -fsSL "${GPG_URL}" | ${gpg} --dearmor -o "${GPG_NAME}"
+  ${curl} -fsSL "${GPG_URL}" | ${gpg} --batch --dearmor -o "${GPG_NAME}"
 
   _popd || exit 1
 }
