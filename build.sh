@@ -49,9 +49,8 @@ init() {
 git_clone() {
   echo "--- [GIT] CLONE: ${GIT_REPO#https://}"
 
-  local SRC="https://${GIT_USER}:${GIT_TOKEN}@${GIT_REPO#https://}"
-
-  ${git} clone "${SRC}" "${d_src}"
+  local src="https://${GIT_USER}:${GIT_TOKEN}@${GIT_REPO#https://}"
+  ${git} clone "${src}" "${d_src}"
 
   echo "--- [GIT] LIST: '${d_src}'"
   ls -1 "${d_src}"
