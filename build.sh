@@ -37,16 +37,16 @@ init() {
   ts="$( _timestamp )"
 
   # Run.
-  git_clone \
-    && gpg_build \
-    && git_push
+  clone \
+    && build \
+    && push
 }
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # GIT: CLONE REPOSITORY.
 # -------------------------------------------------------------------------------------------------------------------- #
 
-git_clone() {
+clone() {
   echo "--- [GIT] CLONE: ${GIT_REPO#https://}"
 
   local src="https://${GIT_USER}:${GIT_TOKEN}@${GIT_REPO#https://}"
@@ -60,7 +60,7 @@ git_clone() {
 # GPG: BUILD FILES.
 # -------------------------------------------------------------------------------------------------------------------- #
 
-gpg_build() {
+build() {
   echo "--- [GPG] BUILD"
   _pushd "${d_src}" || exit 1
 
@@ -77,7 +77,7 @@ gpg_build() {
 # GIT: PUSH GPG TO GPG STORE REPOSITORY.
 # -------------------------------------------------------------------------------------------------------------------- #
 
-git_push() {
+push() {
   echo "--- [GIT] PUSH: '${d_src}' -> '${GIT_REPO#https://}'"
   _pushd "${d_src}" || exit 1
 
