@@ -12,6 +12,7 @@ GIT_TOKEN="${4}"
 GPG_URL="${5}"
 GPG_NAME="${6}"
 GPG_CMD="${7}"
+USER_AGENT="${8}"
 
 # Apps.
 date="$( command -v date )"
@@ -65,9 +66,9 @@ gpg_build() {
   _pushd "${d_src}" || exit 1
 
   if [[ "${GPG_CMD}" == "dearmor" ]]; then
-    ${curl} -fsSL "${GPG_URL}" | ${gpg} --batch --yes --dearmor -o "${GPG_NAME}"
+    ${curl} -X GET -A "${USER_AGENT}" -fsSL "${GPG_URL}" | ${gpg} --batch --yes --dearmor -o "${GPG_NAME}"
   else
-    ${curl} -fsSL -o "${GPG_NAME}" "${GPG_URL}"
+    ${curl} -X GET -A "${USER_AGENT}" -fsSL -o "${GPG_NAME}" "${GPG_URL}"
   fi
 
   _popd || exit 1
