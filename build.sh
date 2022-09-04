@@ -12,7 +12,7 @@ GIT_TOKEN="${4}"
 GPG_URL="${5}"
 GPG_NAME="${6}"
 GPG_CMD="${7}"
-USER_AGENT="${8}"
+USER_AGENT="Mozilla/5.0 (X11; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0"
 
 # Apps.
 date="$( command -v date )"

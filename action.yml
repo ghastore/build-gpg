@@ -26,10 +26,6 @@ inputs:
   gpg_cmd:
     description: "GPG Command"
     required: false
-  user_agent:
-    description: "GPG Command"
-    required: true
-    default: "Mozilla/5.0 (X11; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0"
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -40,4 +36,3 @@ runs:
     - ${{ inputs.git_token }}
     - ${{ inputs.gpg_url }}
     - ${{ inputs.gpg_name }}
-    - ${{ inputs.user_agent }}
