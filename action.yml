@@ -28,8 +28,8 @@ inputs:
     required: false
   user_agent:
     description: "cURL User Agent"
-    required: false
-    default: ""
+    required: true
+    default: "Mozilla"
 runs:
   using: "docker"
   image: "Dockerfile"
