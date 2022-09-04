@@ -33,7 +33,7 @@ ${git} config --global init.defaultBranch 'main'
 # -------------------------------------------------------------------------------------------------------------------- #
 
 init() {
-  # 'ts' function.
+  # Functions.
   ts="$( _timestamp )"
 
   # Run.
