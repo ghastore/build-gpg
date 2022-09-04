@@ -71,6 +71,8 @@ gpg_build() {
     ${curl} -X GET -A "${USER_AGENT}" -fsSL -o "${GPG_NAME}" "${GPG_URL}"
   fi
 
+  echo "${curl} -X GET -A '${USER_AGENT}' -fsSL -o '${GPG_NAME}' '${GPG_URL}'"
+
   _popd || exit 1
 }
 
