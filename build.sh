@@ -12,7 +12,7 @@ GIT_TOKEN="${4}"
 GPG_URL="${5}"
 GPG_NAME="${6}"
 GPG_CMD="${7}"
-USER_AGENT="${8}"
+USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
 
 # Apps.
 date="$( command -v date )"
