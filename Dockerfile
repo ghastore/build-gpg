@@ -2,8 +2,8 @@ FROM alpine
 
 LABEL "name"="GPG Builder"
 LABEL "description"=""
-LABEL "maintainer"="z17 Development <mail@z17.dev>"
-LABEL "repository"="https://github.com/ghastore/store-gpg-build.git"
+LABEL "maintainer"="v77 Development <mail@v77.dev>"
+LABEL "repository"="https://github.com/ghastore/build-gpg.git"
 LABEL "homepage"="https://github.com/ghastore"
 
 COPY *.sh /

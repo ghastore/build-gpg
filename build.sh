@@ -23,7 +23,7 @@ gpg="$( command -v gpg )"
 # Dirs.
 d_src="/root/git/repo"
 
-# Git config.
+# Git.
 ${git} config --global user.name "${GIT_USER}"
 ${git} config --global user.email "${GIT_EMAIL}"
 ${git} config --global init.defaultBranch 'main'
@@ -33,10 +33,8 @@ ${git} config --global init.defaultBranch 'main'
 # -------------------------------------------------------------------------------------------------------------------- #
 
 init() {
-  # Functions.
   ts="$( _timestamp )"
 
-  # Run.
   clone \
     && build \
     && push
